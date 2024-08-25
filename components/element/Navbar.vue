@@ -4,12 +4,8 @@
             <nav w-full flex justify-between gap-6 relative>
                 <div min-w-max inline-flex relative>
                     <nuxt-link to="/" relative flex items-center gap-3>
-                        <span class="flex">
-                            <span w3 h6 rd-l-full flex bg-emerald-6></span>
-                            <span w3 h6 rd-r-full flex bg-teal-4 mt1.5></span>
-                        </span>
                         <div inline-flex text="lg neutral-8 dark:white" font-semibold>
-                            Estavis
+                            VT
                         </div>
                     </nuxt-link>
                 </div>
@@ -35,7 +31,7 @@
                             relative overflow-hidden border="~ transparent hover:[emerald7]" duration-300 ease-linear
                             un-after="absolute content-empty inset-x-0 aspect-square scale-0 op-70 origin-center duration-300 ease-linear rd-full top-0 left-0 bg-[emerald7]">
                             <span relative z-10 text-white>
-                                Get Started
+                                Contact Us
                             </span>
                         </nuxt-link>
                     </div>
@@ -63,22 +59,22 @@ const navItems = [
     {
         id: 1,
         text: "Home",
-        href: "/",
+        href: "/home",
     },
     {
         id: 2,
-        text: "Services",
-        href: "/",
+        text: "Features",
+        href: "/features",
     },
     {
         id: 3,
-        text: "About us",
-        href: "/",
+        text: "How it works",
+        href: "/#how-it-works",
     },
     {
         id: 4,
-        text: "Features",
-        href: "/",
+        text: "Pricing",
+        href: "/#pricing",
     }
 ]
 
