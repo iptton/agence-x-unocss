@@ -2,10 +2,10 @@
     <main class="flex-1">
         <SectionsHeroSection/>
         <SectionsSocialProuf/>
-        <SectionsLogoCloud/>
-        <SectionsServices/>
-        <SectionsAboutContent/>
-        <SectionsCta/>
+<!--        <SectionsLogoCloud/>-->
+<!--        <SectionsServices/>-->
+<!--        <SectionsAboutContent/>-->
+<!--        <SectionsCta/>-->
     </main>
 </template>
 
