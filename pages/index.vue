@@ -15,7 +15,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'A sample landing page built using UnoCSS + NuxtJS and Unify UI blocks',
+      content: 'Video Tranaslate Professor is a platform that helps you to translate your video content to any language you want.',
     },
   ],
   link:[
