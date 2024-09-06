@@ -1,6 +1,6 @@
 import { useCookies } from "@vueuse/integrations";
 
-const host = 'http://localhost:8787'
+const host = ''
 
 export function login(username: string, password: string): Promise<boolean> {
     // 向 /login 接口发送 POST 请求，body 为 { username, password }
