@@ -7,12 +7,12 @@ export default defineNuxtConfig({
   ],
 
   colorMode: {
-    preference: 'system', 
-    fallback: 'dark', 
+    preference: 'system',
+    fallback: 'dark',
     classPrefix: '',
     classSuffix: '',
     storageKey: 'app-theme'
   },
-
+  target: 'static',
   compatibilityDate: '2024-08-24',
 })
