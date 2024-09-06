@@ -855,11 +855,6 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.5.tgz"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
-"@types/eventsource@^1.1.15":
-  version "1.1.15"
-  resolved "https://repo.huaweicloud.com/repository/npm/@types/eventsource/-/eventsource-1.1.15.tgz"
-  integrity sha512-XQmGcbnxUNa06HR3VBVkc9+A2Vpi9ZyLJcdS5dwaQQ/4ZMWFO+5c90FnMUpbtMZwB/FChoYHwuVg8TvkECacTA==
-
 "@types/http-proxy@^1.17.14":
   version "1.17.15"
   resolved "https://registry.npmjs.org/@types/http-proxy/-/http-proxy-1.17.15.tgz"
@@ -2101,14 +2096,6 @@ cookie-es@^1.1.0, cookie-es@^1.2.2:
   resolved "https://registry.npmjs.org/cookie-es/-/cookie-es-1.2.2.tgz"
   integrity sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==
 
-cookies@^0.9.1:
-  version "0.9.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/cookies/-/cookies-0.9.1.tgz"
-  integrity sha512-TG2hpqe4ELx54QER/S3HQ9SRVnQnGBtKUz5bLQWtYAQ+o6GpgMs6sYUvaiJjVxb+UXwhRhAEP3m7LbsIZ77Hmw==
-  dependencies:
-    depd "~2.0.0"
-    keygrip "~1.1.0"
-
 copy-anything@^3.0.2:
   version "3.0.5"
   resolved "https://registry.npmjs.org/copy-anything/-/copy-anything-3.0.5.tgz"
@@ -2345,7 +2332,7 @@ denque@^2.1.0:
   resolved "https://registry.npmjs.org/denque/-/denque-2.1.0.tgz"
   integrity sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==
 
-depd@~2.0.0, depd@2.0.0:
+depd@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
@@ -2656,16 +2643,6 @@ events@^3.2.0, events@^3.3.0:
   version "3.3.0"
   resolved "https://registry.npmjs.org/events/-/events-3.3.0.tgz"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
-
-eventsource-polyfill@^0.9.6:
-  version "0.9.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/eventsource-polyfill/-/eventsource-polyfill-0.9.6.tgz"
-  integrity sha512-LyMFp2oPDGhum2lMvkjqKZEwWd2/AoXyt8aoyftTBMWwPHNgU+2tdxhTHPluDxoz+z4gNj0uHAPR9nqevATMbg==
-
-eventsource@^2.0.2:
-  version "2.0.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/eventsource/-/eventsource-2.0.2.tgz"
-  integrity sha512-IzUmBGPR3+oUG9dUeXynyNmf91/3zUSJg1lCktzKw47OXuhco54U3r9B7O4XX+Rb1Itm9OZ2b0RkTs10bICOxA==
 
 execa@^5.1.1:
   version "5.1.1"
@@ -3427,13 +3404,6 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
-
-keygrip@~1.1.0:
-  version "1.1.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/keygrip/-/keygrip-1.1.0.tgz"
-  integrity sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==
-  dependencies:
-    tsscmp "1.0.6"
 
 kleur@^3.0.3:
   version "3.0.3"
@@ -5245,11 +5215,6 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
-
-tsscmp@1.0.6:
-  version "1.0.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/tsscmp/-/tsscmp-1.0.6.tgz"
-  integrity sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
