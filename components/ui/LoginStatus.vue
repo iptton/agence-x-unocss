@@ -22,16 +22,14 @@
 
 <script setup lang="ts">
 import { containsLoginCookie, verifyLogined } from '~/utils/session-auth';
-
+let loggedIn = ref(containsLoginCookie());
 onMounted(() => {
-  if (process.client) {
     let loggedIn = ref(containsLoginCookie());
     if (loggedIn) {
       verifyLogined().catch(() => {
         loggedIn.value = false;
       });
     }
-  }
 });
 
 </script>
