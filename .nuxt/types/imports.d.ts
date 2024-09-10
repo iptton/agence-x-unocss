@@ -46,6 +46,7 @@ declare global {
   const isShallow: typeof import('../../node_modules/.pnpm/vue@3.5.3/node_modules/vue')['isShallow']
   const isVue2: typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']
   const isVue3: typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']
+  const listTasks: typeof import('../../utils/tasks')['listTasks']
   const loadPayload: typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/composables/payload')['loadPayload']
   const login: typeof import('../../utils/session-auth')['login']
   const logout: typeof import('../../utils/session-auth')['logout']
@@ -184,6 +185,9 @@ declare global {
   // @ts-ignore
   export type { Component, ComponentPublicInstance, ComputedRef, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode } from '../../node_modules/.pnpm/vue@3.5.3/node_modules/vue'
   import('../../node_modules/.pnpm/vue@3.5.3/node_modules/vue')
+  // @ts-ignore
+  export type { Task } from '../../utils/tasks'
+  import('../../utils/tasks')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -234,6 +238,7 @@ declare module 'vue' {
     readonly isShallow: UnwrapRef<typeof import('../../node_modules/.pnpm/vue@3.5.3/node_modules/vue')['isShallow']>
     readonly isVue2: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']>
     readonly isVue3: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']>
+    readonly listTasks: UnwrapRef<typeof import('../../utils/tasks')['listTasks']>
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.3/node_modules/nuxt/dist/app/composables/payload')['loadPayload']>
     readonly login: UnwrapRef<typeof import('../../utils/session-auth')['login']>
     readonly logout: UnwrapRef<typeof import('../../utils/session-auth')['logout']>
