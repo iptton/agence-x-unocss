@@ -26,16 +26,16 @@ function handleSubmit() {
 </script>
 <template>
     <section class="my20 w-auto b-amber b-s-style-solid">
-        <form @submit.prevent="handleSubmit"
+        <form @submit.prevent="handleSubmit" text="lg neutral-7 dark:neutral-3"
             class="w-auto max-w-sm mx-auto p-6 border border-gray-300 rounded-lg shadow-lg">
             <div class="mb-4">
-                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                <label for="username">Username</label>
                 <input v-model="username" type="text" id="username"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required>
             </div>
             <div class="mb-6">
-                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <label for="password">Password</label>
                 <input v-model="password" type="password" id="password"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     required>
