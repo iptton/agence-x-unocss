@@ -51,8 +51,8 @@ export function register(username: string, password: string): Promise<boolean> {
             password,
         }),
     }).then(res => {
-        return res.status === 200;
-    });
+        return res.json()
+    })
 }
 
 export function containsLoginCookie(): boolean {

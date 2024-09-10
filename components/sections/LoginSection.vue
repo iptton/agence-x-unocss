@@ -1,5 +1,5 @@
 <script setup>
-import { login } from '~/utils/session-auth';
+import { login, register } from '~/utils/session-auth';
 
 const username = ref('');
 const password = ref('');
@@ -23,6 +23,26 @@ function handleSubmit() {
         errorMsg.value = '登录失败：' + error.message;
     });
 }
+
+function handleRegister() {
+    register(username.value, password.value).then((res) => {
+        if (res.success) {
+            login(username.value, password.value).then(() => {
+                router.push({
+                    name: 'console',
+                    query: {
+                        ...route.query,
+                    },
+                })
+            });
+        } else {
+            errorMsg.value = res.message;
+        }
+    }).catch((error) => {
+        errorMsg.value = '注册失败：' + error.message;
+    })
+}
+
 </script>
 <template>
     <section class="my20 w-auto b-amber b-s-style-solid">
@@ -44,7 +64,7 @@ function handleSubmit() {
                 <div class="flex items-center gap-3">
                     <button bg-green-4
                         class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300">Login</button>
-                    <nuxt-link to="/register" text-blue hover:text-blue-200>Register</nuxt-link>
+                    <a @click.prevent="handleRegister" text-blue hover:text-blue-200>Register</a>
                 </div>
                 <div class="flex items-center gap-3">
                     <nuxt-link to="/forgot-password" text-blue hover:text-blue-200>Forgot Password</nuxt-link>
