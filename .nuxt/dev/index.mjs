@@ -8,7 +8,7 @@ import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRender
 import { stringify, uneval } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/devalue/index.js';
 import destr from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/destr/dist/index.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/vue/server-renderer/index.mjs';
+import { renderToString } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/.pnpm/vue@3.5.3/node_modules/vue/server-renderer/index.mjs';
 import { propsToString, renderSSRHead } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/@unhead/ssr/dist/index.mjs';
 import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/ofetch/dist/node.mjs';
 import { createCall, createFetch } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/unenv/runtime/fetch/index.mjs';
@@ -24,7 +24,7 @@ import { AsyncLocalStorage } from 'node:async_hooks';
 import { consola } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/consola/dist/index.mjs';
 import { getContext } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/unctx/dist/index.mjs';
 import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/errx/dist/index.js';
-import { isVNode, version, unref } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/vue/index.mjs';
+import { isVNode, version, unref } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/.pnpm/vue@3.5.3/node_modules/vue/index.mjs';
 import { fileURLToPath } from 'node:url';
 import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/ipx/dist/index.mjs';
 import { isAbsolute } from 'file:///Users/ippan/code/opensource/agence-x-unocss/node_modules/pathe/dist/index.mjs';
@@ -628,7 +628,7 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _MQtFMoBvqv = (function(nitro) {
+const _ay63eGxIRZ = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
@@ -653,7 +653,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _RMlnf32uqA = (nitroApp) => {
+const _Q4dpTqQ3kf = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -724,16 +724,16 @@ function onConsoleLog(callback) {
 
 const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,c=window.localStorage,d=[\"dark\",\"light\"],n=c&&c.getItem&&c.getItem(\"app-theme\")||\"system\";let l=n===\"system\"?f():n;const i=e.getAttribute(\"data-color-mode-forced\");i&&(l=i),r(l),a[\"__NUXT_COLOR_MODE__\"]={preference:n,value:l,getColorScheme:f,addColorScheme:r,removeColorScheme:u};function r(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function u(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function m(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function f(){if(a.matchMedia&&m(\"\").media!==\"not all\"){for(const o of d)if(m(\":\"+o).matches)return o}return\"dark\"}})();";
 
-const _DHXSUASTcH = (function(nitro) {
+const _A93CMaqeoW = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _MQtFMoBvqv,
-_RMlnf32uqA,
-_DHXSUASTcH
+  _ay63eGxIRZ,
+_Q4dpTqQ3kf,
+_A93CMaqeoW
 ];
 
 const scheduledTasks = false;
@@ -876,7 +876,7 @@ function publicAssetsURL(...path) {
   return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
 }
 
-const _EWitE2 = lazyEventHandler(() => {
+const _9zfU9Y = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -894,12 +894,12 @@ const _EWitE2 = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_7WnJhx = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_Zn0GrG = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_7WnJhx, lazy: true, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _EWitE2, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_7WnJhx, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_Zn0GrG, lazy: true, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _9zfU9Y, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_Zn0GrG, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

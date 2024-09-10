@@ -1,7 +1,9 @@
 // uno.config.ts
 import {
     defineConfig, presetAttributify, presetIcons, presetUno, presetMini, presetWebFonts
-  } from 'unocss'
+} from 'unocss'
+import presetAnimations from 'unocss-preset-animations'
+import { presetShadcn } from 'unocss-preset-shadcn'
   
   import transformerDirectives from '@unocss/transformer-directives'
   
@@ -28,5 +30,7 @@ import {
           }
         }
       ),
+      presetAnimations(),
+      presetShadcn(),
     ],
   })

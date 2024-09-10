@@ -1,23 +1,29 @@
 import { useCookies } from "@vueuse/integrations";
 
-const host = ''
+const host = 'https://vt2.pan2017.cn'
 
-export function login(username: string, password: string): Promise<boolean> {
+export function login(username: string, password: string): Promise<{success: string, message: string}> {
     // 向 /login 接口发送 POST 请求，body 为 { username, password }
     // 如果返回 200，表示登录成功，返回 true
     // 如果返回 401，表示登录失败，返回 false
     return fetch(`${host}/api/login`, {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            username,
-            password,
+            "username": username,
+            "password": password,
         }),
-    }).then(res => {
-        return res.status === 200;
-    });
+    }).then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((err) => {
+            console.error(err)
+            return false;
+        });
 }
 
 export function logout(): Promise<boolean> {

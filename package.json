@@ -20,9 +20,12 @@
     "@vueuse/nuxt": "^11.0.3",
     "nuxt": "^3.8.2",
     "vue": "^3.3.6",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "unocss-preset-animations": "^1.0.2",
+    "unocss-preset-shadcn": "^0.3.0"
   },
   "dependencies": {
+    "@unocss/reset": "^0.60.0",
     "@nuxt/image": "^1.0.0",
     "@vueuse/integrations": "^11.0.3",
     "clsx": "^2.0.0",
