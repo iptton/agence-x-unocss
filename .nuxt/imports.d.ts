@@ -29,6 +29,7 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { isLoggedIn, validateAuth } from '../utils/jwtauth';
 export { login, logout, register, containsLoginCookie, verifyLogined } from '../utils/session-auth';
+export { listTasks, Task } from '../utils/tasks';
 export { useColorMode } from '../node_modules/.pnpm/@nuxtjs+color-mode@3.4.4/node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 export { useImage } from '../node_modules/.pnpm/@nuxt+image@1.8.0/node_modules/@nuxt/image/dist/runtime/composables';
 export { useNuxtDevTools } from '../node_modules/.pnpm/@nuxt+devtools@1.4.1_vite@5.4.3/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

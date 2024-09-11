@@ -16,6 +16,7 @@ function handleSubmit() {
                     ...route.query,
                 },
             })
+            errorMsg.value = '登录成功，跳转中...';
         } else {
             errorMsg.value = res.message;
         }

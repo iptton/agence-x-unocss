@@ -1,5 +1,11 @@
 <template>
     <main class="flex-1 mt-30">
+        <div cursor-hand flex flex-wrap @click="triggerSelectFile">
+            <div shadow-gray shadow border-1 p-2 flex flex-col items-center justify-center text-center>
+                <div w-20 h-20 text-6xl>📁</div>
+                <div>Upload</div>
+            </div>
+        </div>
         <div mx-auto>Tasks</div>
         <div v-for="task in tasks" :key="task.fileId">
             <div>{{ task.name }}</div>
@@ -7,12 +13,13 @@
         </div>
         <hr class="my-10" />
         <div>
-            <form @submit.prevent="uploadFile" class="mt-20 p-4 border rounded-lg shadow-form"">
-                <input type="file" name="file" id="file"/>
-                <button type="submit">Translate!</button>
-                <div v-if="errMsg" class="text-red-500">{{ errMsg }}</div>
+            <form @submit.prevent="createTask" class="mt-20 p-4 border rounded-lg shadow-form"">
+                <input hidden type="file" name="file" id="file" />
+            <button type="submit">Translate!</button>
+            <div v-if="errMsg" class="text-red-500">{{ errMsg }}</div>
             </form>
         </div>
+
     </main>
 </template>
 <script setup lang="ts">
@@ -20,7 +27,12 @@ import { onMounted } from 'vue';
 import { listTasks, type Task } from '~/utils/tasks';
 const errMsg = ref('');
 
-function onFileChange(event: Event, fileId: string) {
+function triggerSelectFile() {
+    const fileInput = document.getElementById('file');
+    fileInput!.click();
+}
+
+function createTask(event: Event) {
     const input = document.getElementById('file') as HTMLInputElement;
     if (input.files && input.files.length > 0) {
         const file = input.files[0];
