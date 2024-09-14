@@ -3,7 +3,8 @@ import {
     defineConfig, presetAttributify, presetIcons, presetUno, presetMini, presetWebFonts
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
-import { presetShadcn } from 'unocss-preset-shadcn'
+
+import presetDaisy from '@vsilk/unocss-preset-daisyui'
   
   import transformerDirectives from '@unocss/transformer-directives'
   
@@ -31,6 +32,6 @@ import { presetShadcn } from 'unocss-preset-shadcn'
         }
       ),
       presetAnimations(),
-      presetShadcn(),
+      presetDaisy(),
     ],
   })
