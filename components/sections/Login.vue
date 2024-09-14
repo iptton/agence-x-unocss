@@ -63,12 +63,13 @@ function handleRegister() {
             </div>
             <div flx flex-row>
                 <div class="flex items-center gap-3">
-                    <button bg-green-4
-                        class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300">Login</button>
-                    <a @click.prevent="handleRegister" text-blue hover:text-blue-200>Register</a>
+                    <button class="btn btn-primary">
+                        Sign In    
+                    </button>
+                    <a @click.prevent="handleRegister" class="link link-primary">Register</a>
                 </div>
-                <div class="flex items-center gap-3">
-                    <nuxt-link to="/forgot-password" text-blue hover:text-blue-200>Forgot Password</nuxt-link>
+                <div class="flex items-center gap-3 link link-primary">
+                    <nuxt-link to="/forgot-password" >Forgot Password</nuxt-link>
                 </div>
                 <!-- login error message -->
                 <div class="text-red-500 text-xs italic">{{ errorMsg }}</div>

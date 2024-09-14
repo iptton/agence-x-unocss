@@ -1,5 +1,5 @@
 <template>
   <main class="flex-1">
-    <SectionsLoginSection />
+    <SectionsLogin />
   </main>
 </template>

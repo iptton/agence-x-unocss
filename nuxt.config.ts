@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   head: {
     htmlAttrs: {
-      "data-theme": "cupcake"
+      "data-theme": "lemonade"
     }
   },
   modules:[

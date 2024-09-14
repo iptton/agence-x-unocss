@@ -1,11 +1,6 @@
 <template>
     <main class="flex-1">
-        <SectionsHeroSection/>
-<!--        <SectionsSocialProuf/>-->
-<!--        <SectionsLogoCloud/>-->
-<!--        <SectionsServices/>-->
-<!--        <SectionsAboutContent/>-->
-<!--        <SectionsCta/>-->
+        <SectionsHome />
     </main>
 </template>
 
