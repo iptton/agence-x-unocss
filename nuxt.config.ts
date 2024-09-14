@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  head: {
+    htmlAttrs: {
+      "data-theme": "cupcake"
+    }
+  },
   modules:[
     '@unocss/nuxt',
     '@nuxtjs/color-mode',

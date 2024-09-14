@@ -1,4 +1,6 @@
 <template>
+
+
     <header absolute inset-x-0 top-0 z50 py6>
         <div w-full px="5 sm:10 md:12 lg:5" mx-auto max-w-7xl>
             <nav w-full flex justify-between gap-6 relative>

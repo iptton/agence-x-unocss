@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-screen flex flex-col justify-between">
-        <ElementNavbar/>
+        <ElementNavbar2/>
         <slot/>
         <ElementFooter/>
     </div>

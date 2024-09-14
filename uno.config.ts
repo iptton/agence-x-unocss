@@ -32,6 +32,8 @@ import presetDaisy from '@vsilk/unocss-preset-daisyui'
         }
       ),
       presetAnimations(),
-      presetDaisy(),
+      presetDaisy({
+          themes: ["light", "dark", "cupcake"],
+      }),
     ],
   })
