@@ -87,7 +87,7 @@ function createTask(event: Event) {
     }
 }
 
-const tasks = reactive([]);
+const tasks = reactive<Task[]>([]);
 
 onMounted(() => {
 

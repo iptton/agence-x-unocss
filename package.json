@@ -38,6 +38,7 @@
     "@vueuse/integrations": "^11.0.3",
     "clsx": "^2.0.0",
     "nuxt-storage": "^1.2.2",
+    "pinia": "^2.2.2",
     "tailwind-merge": "^1.14.0"
   }
 }
