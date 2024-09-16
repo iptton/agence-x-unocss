@@ -10,13 +10,13 @@ const route = useRoute();
 function handleSubmit() {
     login(username.value, password.value).then((res) => {
         if (res.success) {
-            router.push({
+            errorMsg.value = '登录成功，跳转中...';
+            return router.replace({
                 name: 'console',
                 query: {
                     ...route.query,
                 },
             })
-            errorMsg.value = '登录成功，跳转中...';
         } else {
             errorMsg.value = res.message;
         }
@@ -51,25 +51,25 @@ function handleRegister() {
             class="w-auto max-w-sm mx-auto p-6 border border-gray-300 rounded-lg shadow-lg">
             <div class="mb-4">
                 <label for="username">Username</label>
-                <input v-model="username" type="text" id="username"
+                <input data-testid="username" v-model="username" type="text" id="username"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required>
             </div>
             <div class="mb-6">
                 <label for="password">Password</label>
-                <input v-model="password" type="password" id="password"
+                <input data-testid="password" v-model="password" type="password" id="password"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     required>
             </div>
             <div flx flex-row>
                 <div class="flex items-center gap-3">
-                    <button class="btn btn-primary">
-                        Sign In    
+                    <button id="SignIn" class="btn btn-primary">
+                        Sign In
                     </button>
                     <a @click.prevent="handleRegister" class="link link-primary">Register</a>
                 </div>
                 <div class="flex items-center gap-3 link link-primary">
-                    <nuxt-link to="/forgot-password" >Forgot Password</nuxt-link>
+                    <nuxt-link to="/forgot-password">Forgot Password</nuxt-link>
                 </div>
                 <!-- login error message -->
                 <div class="text-red-500 text-xs italic">{{ errorMsg }}</div>

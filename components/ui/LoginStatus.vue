@@ -9,7 +9,7 @@
     </nuxt-link>
     <nuxt-link v-else to="/login">
       <span class="btn btn-primary rounded">
-        <span>Sign In</span>
+        <span class="text-primary-content">Sign In</span>
       </span>
     </nuxt-link>
   </client-only>

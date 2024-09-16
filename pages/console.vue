@@ -12,14 +12,14 @@
             <div>{{ task.description }}</div>
         </div>
         <hr class="my-10" />
-        <div>
-            <form @submit.prevent="createTask" class="mt-20 p-4 border rounded-lg shadow-form"">
-                <input hidden type="file" name="file" id="file" />
+        <div flex-col>
+            <form @submit.prevent="createTask($event)" class="mt-20 p-4 border rounded-lg shadow-form">
+            <input hidden type=" file" name="file" id="file" />
             <button type="submit">Translate!</button>
-            <div v-if="errMsg" class="text-red-500">{{ errMsg }}</div>
+            <div class="text-red-500">{{ errMsg }}</div>
             </form>
         </div>
-        <button class="btn">Hello</button>
+        <button data-testid="translate" class="btn">Hello</button>
     </main>
 </template>
 <script setup lang="ts">
@@ -87,7 +87,7 @@ function createTask(event: Event) {
     }
 }
 
-const tasks = reactive < Task[] > ([]);
+const tasks = reactive([]);
 
 onMounted(() => {
 
