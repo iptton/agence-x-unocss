@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  head: {
-    htmlAttrs: {
-      "data-theme": "lemonade"
-    }
+  app: {
+    head: {
+      htmlAttrs: {
+        "data-theme": "lemonade"
+      }
+    },
   },
   modules:[
     '@unocss/nuxt',
@@ -19,6 +21,6 @@ export default defineNuxtConfig({
     classSuffix: '',
     storageKey: 'app-theme'
   },
-  target: 'static',
-  compatibilityDate: '2024-08-24',
+  ssr: false,
+  compatibilityDate: '2024-09-15',
 })
