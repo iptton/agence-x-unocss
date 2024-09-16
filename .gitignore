@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# ignore yarn.lock so that it won't produces error: YN0028
+yarn.lock
