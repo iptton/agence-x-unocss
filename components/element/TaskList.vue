@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row items-start justify-left gap-4 flex-wrap">
+    <div class="flex flex-col items-start justify-left gap-4 flex-wrap">
         <div v-for="task in tasks" class="card bg-base-100 w-96 shadow-xl">
             <div class="flex flex-row">
                 <figure class="px-10 pt-10">
@@ -24,15 +24,26 @@
     </div>
 </template>
 <script setup lang="ts">
-defineProps<{ tasks: Task[] }>();
+const props = defineProps<{ tasks: Task[] }>();
+const { tasks } = toRefs(props);
+
+onMounted(() => {
+    console.info('Checking task status', tasks.value);
+    tasks.value.forEach(task => {
+        checkTaskStatus(task);
+    });
+});
 
 function checkTaskStatus(task: Task) {
+    console.info('Checking task status', task);
     fetch(`/api/tasks/status/${task.sessionId}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
                 task.completed = true;
                 task.downloadUrl = data.url;
+            } else {
+                console.error(data);
             }
         })
         .catch(error => {
