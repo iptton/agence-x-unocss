@@ -4,7 +4,7 @@
       rd-full relative overflow-hidden border="~ transparent hover:[emerald7]" duration-300 ease-linear
       un-after="absolute content-empty inset-x-0 aspect-square scale-0 op-70 origin-center duration-300 ease-linear rd-full top-0 left-0 bg-[emerald7]">
       <span relative z-10 text-white>
-        Welcome!
+        Welcome! {{ $session.user.email }}
       </span>
       <span class="btn b-t-secondary" @click="logout">Log Out</span>
     </nuxt-link>

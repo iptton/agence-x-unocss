@@ -74,6 +74,7 @@ export function useLogged() {
     });
 
     return {
+        username,
         isLogged,
     };
 }

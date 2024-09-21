@@ -15,7 +15,7 @@
                         class="grow" />
                 </label>
                 <div class="text-red-500">{{ errMsg }}</div>
-                <button type="submit" class="btn btn-primary">Create Task</button>
+                <button :enabled="enabledCreate" type="submit" class="btn btn-primary">Create Task</button>
             </form>
         </div>
     </main>
@@ -24,6 +24,8 @@
 import { onMounted } from 'vue';
 import { listTasks, type Task } from '~/utils/tasks';
 const errMsg = ref('');
+
+let enabledCreate = ref(false);
 
 function triggerSelectFile() {
     const fileInput = document.getElementById('file');
@@ -51,11 +53,16 @@ function createTask(event: Event) {
                     throw new Error(data.message);
                 }
                 errMsg.value = '任务创建成功';
-                listTasks().then((res) => {
-                    tasks.length = 0;
-                    tasks.push(...res.tasks);
-                    errMsg.value = '';
-                });
+                // listTasks().then((res) => {
+                //     tasks.length = 0;
+                //     tasks.push(...res.tasks);
+                //     errMsg.value = '';
+                // });
+                tasks.push(data.task);
+                return data.task;
+            })
+            .then((task) => {
+                checkTaskStatus(task);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -66,6 +73,23 @@ function createTask(event: Event) {
     }
 }
 
+function checkTaskStatus(task: Task) {
+    console.info('Checking task status', task);
+    fetch(`/api/tasks/status/${task.sessionId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                task.completed = true;
+                task.downloadUrl = data.url;
+            } else {
+                console.error(data);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
 const tasks = reactive<Task[]>([]);
 
 onMounted(() => {
@@ -73,7 +97,8 @@ onMounted(() => {
     listTasks().then((res) => {
         console.log(res);
         tasks.push(...res.tasks);
-        //tasks.concat(...res);
+
+        enabledCreate.value = tasks.find(task => !task.completed) === undefined;
     });
 });
 </script>
