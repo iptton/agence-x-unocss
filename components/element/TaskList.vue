@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col items-start justify-left gap-4 flex-wrap">
         <div v-for="task in tasks" class="card bg-base-100 w-96 shadow-xl">
-            <div class="flex flex-row">
+            <div class="flex flex-col">
                 <figure class="px-10 pt-10">
                     <video class="rounded-t-lg" :src="`/api/download/${task.originFile}`" />
                 </figure>

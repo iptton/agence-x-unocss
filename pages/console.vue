@@ -2,7 +2,7 @@
     <main class="flex-1 m-20">
 
         <div my-10 font-bold text-lg>Tasks</div>
-        <ElementTaskList :tasks="tasks" />
+        <SectionsTaskList :tasks="tasks" />
         <div class="text-lg font-bold py-10"> Create new task</div>
 
         <div flex-col>
