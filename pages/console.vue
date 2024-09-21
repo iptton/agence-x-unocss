@@ -15,7 +15,7 @@
                         class="grow" />
                 </label>
                 <div class="text-red-500">{{ errMsg }}</div>
-                <button :enabled="enabledCreate" type="submit" class="btn btn-primary">Create Task</button>
+                <button type="submit" class="btn btn-primary">Create Task</button>
             </form>
         </div>
     </main>
@@ -98,7 +98,7 @@ onMounted(() => {
         console.log(res);
         tasks.push(...res.tasks);
 
-        enabledCreate.value = tasks.find(task => !task.completed) === undefined;
+        // enabledCreate.value = tasks.find(task => !task.completed) === undefined;
     });
 });
 </script>
