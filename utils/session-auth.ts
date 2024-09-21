@@ -1,6 +1,7 @@
 import { useCookies } from "@vueuse/integrations";
 
-const host = 'https://vt2.pan2017.cn'
+// const host = 'https://vt2.pan2017.cn'
+const host = '';
 
 export function login(username: string, password: string): Promise<{success: string, message: string}> {
     // 向 /login 接口发送 POST 请求，body 为 { username, password }
@@ -58,7 +59,23 @@ export function register(username: string, password: string): Promise<boolean> {
 export function containsLoginCookie(): boolean {
     const username = useCookie('username')
     const session = useCookie('session')
+    console.info('contains cookie? ',username.value, session.value)
     return !!username.value && !!session.value
+}
+
+export function useLogged() {
+    const username = useCookie('username');
+    const session = useCookie('session');
+    const isLogged = ref(!!username.value && !!session.value);
+
+    // Watch for changes in cookies and update the logged-in status
+    watch([username, session], ([newUsername, newSession]) => {
+        isLogged.value = !!newUsername && !!newSession;
+    });
+
+    return {
+        isLogged,
+    };
 }
 
 export async function verifyLogined(): Promise<boolean> {

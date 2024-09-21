@@ -14,7 +14,7 @@ import TaskList from './TaskList.vue';
 const tasks = ref([]);
 
 const fetchTasks = async () => {
-    const response = await fetch('http://vt2.pan2017.cn/api/tasks');
+    const response = await fetch('/api/tasks');
     tasks.value = response.json();
 
 };

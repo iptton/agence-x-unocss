@@ -1,25 +1,23 @@
 <template>
-    <main class="flex-1 mt-30">
-        <div cursor-hand flex flex-wrap @click="triggerSelectFile">
-            <div shadow-gray shadow border-1 p-2 flex flex-col items-center justify-center text-center>
-                <div w-20 h-20 text-6xl>📁</div>
-                <div>Upload</div>
-            </div>
-        </div>
-        <div mx-auto>Tasks</div>
-        <div v-for="task in tasks" :key="task.fileId">
-            <div>{{ task.name }}</div>
-            <div>{{ task.description }}</div>
-        </div>
-        <hr class="my-10" />
+    <main class="flex-1 m-20">
+
+        <div my-10 font-bold text-lg>Tasks</div>
+        <ElementTaskList :tasks="tasks" />
+        <div class="text-lg font-bold py-10"> Create new task</div>
+
         <div flex-col>
-            <form @submit.prevent="createTask($event)" class="mt-20 p-4 border rounded-lg shadow-form">
-            <input hidden type=" file" name="file" id="file" />
-            <button type="submit">Translate!</button>
-            <div class="text-red-500">{{ errMsg }}</div>
+            <form @submit.prevent="createTask($event)" class="flex flex-col gap-3 mt-20 p-4 border rounded-lg shadow-form">
+                <input id="file" name="file" type="file"
+                    class="file-input file-input-bordered file-input-success w-full max-w-xs" />
+                <label class="input input-bordered flex items-center gap-2">
+                    Name
+                    <input type="text" required name="name" placeholder="input name"
+                        class="grow" />
+                </label>
+                <div class="text-red-500">{{ errMsg }}</div>
+                <button type="submit" class="btn btn-primary">Create Task</button>
             </form>
         </div>
-        <button data-testid="translate" class="btn">Hello</button>
     </main>
 </template>
 <script setup lang="ts">
@@ -34,47 +32,28 @@ function triggerSelectFile() {
 
 function createTask(event: Event) {
     const input = document.getElementById('file') as HTMLInputElement;
+   
     if (input.files && input.files.length > 0) {
         const file = input.files[0];
         const formData = new FormData();
         formData.append('file', file);
+        formData.append('name', (event.target as any).name.value ??  (new Date()).toISOString());
 
-        fetch('/api/upload', {
+        fetch('/api/task', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
-                if (!data.success) {
-                    console.error(data.message);
-                    throw new Error(data.message);
-                }
-                errMsg.value = '上传成功..创建任务中';
-                return data.fileId;
-            })
-            .then(fileId => {
-                // create tasks
-                return fetch('/api/tasks', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        fileId
-                    })
-                });
-            })
-            .then(response => response.json())
-            .then(data => {
+                console.info(data)
                 if (!data.success) {
                     console.error(data.message);
                     throw new Error(data.message);
                 }
                 errMsg.value = '任务创建成功';
-                errMsg.value = '上传成功..刷新中';
                 listTasks().then((res) => {
                     tasks.length = 0;
-                    tasks.push(...res);
+                    tasks.push(...res.tasks);
                     errMsg.value = '';
                 });
             })
@@ -93,6 +72,7 @@ onMounted(() => {
 
     listTasks().then((res) => {
         console.log(res);
+        tasks.push(...res.tasks);
         //tasks.concat(...res);
     });
 });

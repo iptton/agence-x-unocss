@@ -1,5 +1,6 @@
 
-const host = 'https://vt2.pan2017.cn'
+// const host = 'https://vt2.pan2017.cn'
+const host = '';
 /*
 export const Task = z.object({
 	name: Str({ example: "lorem" }),
@@ -12,11 +13,11 @@ export const Task = z.object({
 */
 export interface Task {
     name: string,
-    description: string,
-    due_date: string,
-    fileId: string,
+    originFile: string,
     completed: boolean,
-    resultFileId: string,
+    sessionId: string,
+    targetFile: string,
+    user: string
 }
 
 export function listTasks(): Promise<Task[]> {

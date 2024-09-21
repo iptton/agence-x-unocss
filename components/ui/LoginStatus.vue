@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <nuxt-link v-if="loggedIn" to="/console" flex justify-center items-center w-full sm-w-max px6 h12 bg-emerald-600
+    <nuxt-link v-if="isLogged" to="/console" flex justify-center items-center w-full sm-w-max px6 h12 bg-emerald-600
       rd-full relative overflow-hidden border="~ transparent hover:[emerald7]" duration-300 ease-linear
       un-after="absolute content-empty inset-x-0 aspect-square scale-0 op-70 origin-center duration-300 ease-linear rd-full top-0 left-0 bg-[emerald7]">
       <span relative z-10 text-white>
@@ -16,14 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { containsLoginCookie, verifyLogined } from '~/utils/session-auth';
-let loggedIn = ref(containsLoginCookie());
-onMounted(() => {
-  if (loggedIn) {
-    verifyLogined().catch(() => {
-      loggedIn.value = false;
-    });
-  }
-});
-
+import { useLogged } from '~/utils/session-auth';
+let { isLogged } = useLogged();
 </script>

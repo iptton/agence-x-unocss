@@ -23,4 +23,10 @@ export default defineNuxtConfig({
   },
   ssr: false,
   compatibilityDate: '2024-09-15',
+
+  ...(process.env.NODE_ENV === 'development' && {
+    routeRules: {
+      '/api/**': { proxy: 'http://localhost:8787/api/**' },
+    },
+  })
 })
