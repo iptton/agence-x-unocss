@@ -6,6 +6,7 @@
       <span relative z-10 text-white>
         Welcome!
       </span>
+      <span class="btn b-t-secondary" @click="logout">Log Out</span>
     </nuxt-link>
     <nuxt-link v-else to="/login">
       <span class="btn btn-primary rounded">
@@ -18,4 +19,10 @@
 <script setup lang="ts">
 import { useLogged } from '~/utils/session-auth';
 let { isLogged } = useLogged();
+
+function logout() {
+  fetch('/api/logout').then(() => {
+    useRouter().replace('/');
+  });
+}
 </script>

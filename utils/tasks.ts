@@ -16,7 +16,7 @@ export interface Task {
     originFile: string,
     completed: boolean,
     sessionId: string,
-    targetFile: string,
+    downloadUrl: string,
     user: string
 }
 
