@@ -1,9 +1,9 @@
 <template>
     <div class="container mx-auto p-4 mt-4">
-        <h1 class="text-2xl font-bold mb-4">视频翻译（导出或添加字幕）</h1>
+        <h1 class="text-2xl font-bold mb-4">视频翻译</h1>
 
         <div class="bg-base-100 shadow-xl rounded-box p-6">
-            <h2 class="text-xl font-semibold mb-4">添加视频文件</h2>
+            <!-- <h2 class="text-xl font-semibold mb-4">添加视频文件</h2> -->
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="relative border-2 border-dashed border-base-300 rounded-box p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-base-200 transition-colors overflow-hidden"
@@ -59,6 +59,12 @@
                     <button class="btn btn-primary w-full" @click="startConversion">开始转换</button>
                 </div>
             </div>
+
+            <!-- 生成后的视频预览与下载 -->
+            <div class="mt-4">
+                <video :src="resultVideoUrl.value" :hidden="resultVideoUrl.value !== ''" class="w-full h-auto" controls></video>
+                <div class="btn btn-primary w-full" @click="downloadResult" :hidden="resultVideoUrl.value !== ''">下载</div>
+            </div>
         </div>
     </div>
 </template>
@@ -81,6 +87,7 @@ const selectedFile = ref(null);
 const videoRef = ref(null);
 const isPlaying = ref(false);
 const videoPreviewUrl = ref('');
+const resultVideoUrl = ref('');
 const originalLanguage = ref(languageOptions[0]);
 const originalLanguages = reactive(languageOptions);
 const targetLanguage = ref(languageOptions[2]);
@@ -88,6 +95,7 @@ const targetLanguages = reactive(languageOptions);
 const speakerOption = ref('单人演讲');
 const speakerOptions = reactive(['单人演讲', '2人对话', '多人讨论']);
 const generateSummary = ref(true);
+const errMsg = ref('');
 
 
 const isValidFileType = (file) => {
@@ -108,7 +116,58 @@ const startConversion = () => {
         speakerOption: speakerOption.value,
         generateSummary: generateSummary.value
     });
+
+    const file = input.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('name', (new Date()).toISOString());
+
+    fetch('/api/task', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.info(data)
+            if (!data.success) {
+                console.error(data.message);
+                throw new Error(data.message);
+            }
+            errMsg.value = '任务创建成功';
+            // listTasks().then((res) => {
+            //     tasks.length = 0;
+            //     tasks.push(...res.tasks);
+            //     errMsg.value = '';
+            // });
+            tasks.push(data.task);
+            return data.task;
+        })
+        .then((task) => {
+            checkTaskStatus(task);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            errMsg.value = error.message;
+        });
 };
+
+function checkTaskStatus(task) {
+    console.info('Checking task status', task);
+    fetch(`/api/tasks/status/${task.sessionId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                task.completed = true;
+                task.downloadUrl = data.url;
+                resultVideoUrl.value = data.url;
+            } else {
+                console.error(data);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 
 const videoPreviewStyle = computed(() => {
     if (videoPreviewUrl.value) {
@@ -161,7 +220,7 @@ const togglePlayPause = () => {
 };
 
 
-const selectOriginalLanguage = (lang) =>{
+const selectOriginalLanguage = (lang) => {
     originalLanguage.value = lang;
 }
 const selectSpeakerOption = (option) => {
