@@ -117,9 +117,8 @@ const startConversion = () => {
         generateSummary: generateSummary.value
     });
 
-    const file = input.files[0];
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', selectedFile.value);
     formData.append('name', (new Date()).toISOString());
 
     fetch('/api/task', {
