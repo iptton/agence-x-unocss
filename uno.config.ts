@@ -33,7 +33,7 @@ export default defineConfig({
     ),
     presetAnimations(),
     presetDaisy({
-      themes: ["light", "dark"],
+      themes: ["dark", "light"],
     }),
   ],
 })

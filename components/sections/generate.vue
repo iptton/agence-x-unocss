@@ -71,10 +71,6 @@
 
 <script setup>
 
-onMounted(() => {
-    setPageLayout('generate');
-});
-
 
 const languageOptions = [
     { value: 'zh', label: '中文' },
