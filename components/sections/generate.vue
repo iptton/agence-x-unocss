@@ -138,7 +138,7 @@ const startConversion = () => {
             //     tasks.push(...res.tasks);
             //     errMsg.value = '';
             // });
-            tasks.push(data.task);
+            // tasks.push(data.task);
             return data.task;
         })
         .then((task) => {
