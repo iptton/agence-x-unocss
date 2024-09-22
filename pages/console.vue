@@ -1,6 +1,6 @@
 <template>
-    <main class="flex-1 m-20">
-<!-- 
+    <main class="flex-1 p-20">
+        <!-- 
         <div my-10 font-bold text-lg>Tasks</div>
         <SectionsTaskList :tasks="tasks" />
         <div class="text-lg font-bold py-10"> Create new task</div> -->

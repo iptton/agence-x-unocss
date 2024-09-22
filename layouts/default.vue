@@ -1,10 +1,13 @@
 <template>
-    <div class="min-h-screen flex flex-col dark:bg-[url('/bg.dark.webp')] bg-cover">
-        <ElementNavbar />
-        <div class="flex-grow">
-            <slot />
+    <div relative w-full h-full>
+        <div class="bg-cover bg-[url(/bg.dark.webp)] absolute z-0 w-full top-0 right-0 left-0 h-[400px]"></div>
+        <div class="relative min-h-screen flex flex-col z-100">
+            <ElementNavbar />
+            <div class="flex-grow">
+                <slot />
+            </div>
+            <ElementFooter />
         </div>
-        <ElementFooter />
     </div>
 </template>
 

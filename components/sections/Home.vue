@@ -5,7 +5,7 @@
             <div relative flex flex-col items-center text-center lg-text-left lg-py-7 xl-py-8 lg-items-start
                 lg-max-w-none max-w-3xl mx-auto lg-mx-0 lg-flex-1 class="lg-w-1/2">
 
-                <h1 text="3xl/tight sm:4xl/tight md:5xl/tight xl:6xl/tight neutral-8 dark:white" font-bold>
+                <h1 text="3xl/tight sm:4xl/tight md:5xl/tight xl:6xl/tight neutral-8" font-bold>
                     Effortless video voice translations, powered by <span
                         class="text-transparent bg-clip-text bg-gradient-to-br from-teal-6 from-20% via-emerald-600 via-30% to-green-6">AI</span>
                 </h1>

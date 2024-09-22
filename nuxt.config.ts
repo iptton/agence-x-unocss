@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        "data-theme": "dark"
+        "data-theme": "light"
       }
     },
   },
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   colorMode: {
     preference: 'system',
-    fallback: 'dark',
+    fallback: 'light',
     classPrefix: '',
     classSuffix: '',
     storageKey: 'app-theme'
