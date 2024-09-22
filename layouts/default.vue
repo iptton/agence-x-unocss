@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex flex-col dark:bg-[url('bg.dark.webp')] bg-cover">
+    <div class="min-h-screen flex flex-col dark:bg-[url('/bg.dark.webp')] bg-cover">
         <ElementNavbar />
         <div class="flex-grow">
             <slot />
