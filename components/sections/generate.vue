@@ -62,8 +62,8 @@
 
             <!-- 生成后的视频预览与下载 -->
             <div class="mt-4">
-                <video :src="resultVideoUrl.value" :hidden="resultVideoUrl.value !== ''" class="w-full h-auto" controls></video>
-                <div class="btn btn-primary w-full" @click="downloadResult" :hidden="resultVideoUrl.value !== ''">下载</div>
+                <video :src="resultVideoUrl" :hidden="resultVideoUrl !== ''" class="w-full h-auto" controls></video>
+                <div class="btn btn-primary w-full" @click="downloadResult" :hidden="resultVideoUrl !== ''">下载</div>
             </div>
         </div>
     </div>
