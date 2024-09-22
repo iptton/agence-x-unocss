@@ -50,15 +50,17 @@ function handleRegister() {
         <form @submit.prevent="handleSubmit" text="lg neutral-7 dark:neutral-3"
             class="w-auto max-w-sm mx-auto p-6 border border-gray-300 rounded-lg shadow-lg">
             <div class="mb-4">
-                <label for="username">Username</label>
-                <input data-testid="username" v-model="username" type="text" id="username"
-                    class="input input-bordered w-full max-w-xs" required>
+                <label class="input input-bordered flex items-center gap-2">
+                    Username
+                    <input data-testid="username" v-model="username" type="text" id="username"
+                        class="grow" required>
+                </label>
             </div>
             <div class="mb-6">
                 <label class="input input-bordered flex items-center gap-2">
                     Password
-                    <input data-testid="password" v-model="password"  id="password" type="password" class="grow"
-                        placeholder="Daisy" />
+                    <input data-testid="password" v-model="password" id="password" type="password" class="grow"
+                        placeholder="" />
                 </label>
             </div>
             <div flx flex-row>
