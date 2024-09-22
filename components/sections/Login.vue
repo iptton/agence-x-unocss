@@ -52,14 +52,14 @@ function handleRegister() {
             <div class="mb-4">
                 <label for="username">Username</label>
                 <input data-testid="username" v-model="username" type="text" id="username"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
+                    class="input input-bordered w-full max-w-xs" required>
             </div>
             <div class="mb-6">
-                <label for="password">Password</label>
-                <input data-testid="password" v-model="password" type="password" id="password"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
+                <label class="input input-bordered flex items-center gap-2">
+                    Password
+                    <input data-testid="password" v-model="password"  id="password" type="password" class="grow"
+                        placeholder="Daisy" />
+                </label>
             </div>
             <div flx flex-row>
                 <div class="flex items-center gap-3">

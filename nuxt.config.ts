@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        "data-theme": "lemonade"
+        "data-theme": "light"
       }
     },
   },
